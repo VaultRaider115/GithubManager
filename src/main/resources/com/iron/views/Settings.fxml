@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<ScrollPane fitToWidth="true" hbarPolicy="NEVER" vbarPolicy="AS_NEEDED"
+            styleClass="screen-scroll" stylesheets="@../css/settings.css"
+            xmlns="http://javafx.com/javafx/27.0.1.1" xmlns:fx="http://javafx.com/fxml/1">
+
+  <fx:define>
+    <ToggleGroup fx:id="themeGroup"/>
+    <ToggleGroup fx:id="densityGroup"/>
+  </fx:define>
+
+  <content>
+    <VBox spacing="20.0" styleClass="screen">
+
+      <!-- ============================== SCREEN HEADER ============================== -->
+      <HBox alignment="CENTER_LEFT" spacing="12.0" styleClass="screen-header">
+        <VBox spacing="2.0">
+          <Label text="SETTINGS" styleClass="screen-eyebrow"/>
+          <Label text="Settings" styleClass="screen-title"/>
+          <Label text="Profile, preferences and account controls." styleClass="screen-subtitle"/>
+        </VBox>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Button text="Discard" mnemonicParsing="false" styleClass="button-secondary"/>
+        <Button text="Save changes" mnemonicParsing="false" styleClass="button-primary"/>
+      </HBox>
+
+      <!-- ============================== MAIN GRID ============================== -->
+      <HBox alignment="TOP_LEFT" spacing="20.0">
+
+        <VBox spacing="20.0" HBox.hgrow="ALWAYS" minWidth="0.0">
+
+          <!-- PROFILE -->
+          <VBox styleClass="card">
+            <HBox alignment="CENTER_LEFT" spacing="12.0" styleClass="card-header">
+              <VBox spacing="2.0">
+                <Label text="Public profile" styleClass="card-title"/>
+                <Label text="How you appear across GitHub" styleClass="card-subtitle"/>
+              </VBox>
+              <Region HBox.hgrow="ALWAYS"/>
+              <Button text="View profile" mnemonicParsing="false" styleClass="link-button"/>
+            </HBox>
+
+            <VBox spacing="16.0" styleClass="card-body">
+              <HBox alignment="CENTER_LEFT" spacing="14.0" styleClass="avatar-editor">
+                <StackPane prefWidth="64.0" prefHeight="64.0" minWidth="64.0" maxWidth="64.0"
+                           minHeight="64.0" maxHeight="64.0" styleClass="avatar, avatar-lg">
+                  <Label id="settingsInitials" text="ID" styleClass="avatar-initials, avatar-initials-lg"/>
+                </StackPane>
+                <VBox spacing="4.0" HBox.hgrow="ALWAYS">
+                  <Label text="Profile picture" styleClass="form-label"/>
+                  <Label text="PNG, JPG or GIF. 1MB max." styleClass="form-hint"/>
+                  <HBox alignment="CENTER_LEFT" spacing="8.0">
+                    <Button text="Upload new" mnemonicParsing="false" styleClass="button-secondary, button-compact"/>
+                    <Button text="Remove" mnemonicParsing="false" styleClass="link-button"/>
+                  </HBox>
+                </VBox>
+              </HBox>
+
+              <Region styleClass="divider"/>
+
+              <HBox spacing="12.0">
+                <VBox spacing="6.0" HBox.hgrow="ALWAYS" styleClass="form-group">
+                  <Label text="Display name" styleClass="form-label"/>
+                  <TextField id="settingsName" text="Iron Dev" styleClass="form-input"/>
+                </VBox>
+                <VBox spacing="6.0" HBox.hgrow="ALWAYS" styleClass="form-group">
+                  <Label text="Username" styleClass="form-label"/>
+                  <TextField id="settingsLogin" text="irondev" styleClass="form-input"/>
+                </VBox>
+              </HBox>
+
+              <VBox spacing="6.0" styleClass="form-group">
+                <Label text="Email" styleClass="form-label"/>
+                <TextField id="settingsEmail" text="iron@iron.dev" styleClass="form-input"/>
+              </VBox>
+
+              <HBox spacing="12.0">
+                <VBox spacing="6.0" HBox.hgrow="ALWAYS" styleClass="form-group">
+                  <Label text="Location" styleClass="form-label"/>
+                  <TextField id="settingsLocation" text="Buenos Aires, AR" styleClass="form-input"/>
+                </VBox>
+                <VBox spacing="6.0" HBox.hgrow="ALWAYS" styleClass="form-group">
+                  <Label text="Website" styleClass="form-label"/>
+                  <TextField id="settingsWebsite" text="https://iron.dev" styleClass="form-input"/>
+                </VBox>
+              </HBox>
+
+              <VBox spacing="6.0" styleClass="form-group">
+                <Label text="Bio" styleClass="form-label"/>
+                <TextArea id="settingsBio" text="Full-stack developer building focused tools for the web. Open source maintainer, Java enthusiast and occasional designer."
+                          wrapText="true" prefRowCount="3" styleClass="form-textarea"/>
+                <Label text="48 characters remaining" styleClass="form-hint"/>
+              </VBox>
+
+              <Region styleClass="divider"/>
+
+              <HBox alignment="CENTER_LEFT" spacing="12.0" styleClass="pref-row">
+                <CheckBox selected="true" styleClass="pref-check"/>
+                <VBox spacing="2.0" HBox.hgrow="ALWAYS">
+                  <Label text="Public profile" styleClass="setting-title"/>
+                  <Label text="Your profile is visible to everyone on GitHub." styleClass="setting-desc"/>
+                </VBox>
+              </HBox>
+            </VBox>
+          </VBox>
+
+          <!-- PREFERENCES -->
+          <VBox styleClass="card">
+            <HBox alignment="CENTER_LEFT" spacing="12.0" styleClass="card-header">
+              <VBox spacing="2.0">
+                <Label text="Preferences" styleClass="card-title"/>
+                <Label text="Notifications and interface" styleClass="card-subtitle"/>
+              </VBox>
+              <Region HBox.hgrow="ALWAYS"/>
+              <Label text="Synced" styleClass="badge-success"/>
+            </HBox>
+
+            <VBox spacing="14.0" styleClass="card-body">
+              <HBox alignment="CENTER_LEFT" spacing="12.0" styleClass="pref-row">
+                <CheckBox selected="true" styleClass="pref-check"/>
+                <VBox spacing="2.0" HBox.hgrow="ALWAYS">
+                  <Label text="Email notifications" styleClass="setting-title"/>
+                  <Label text="Comments, mentions and review requests." styleClass="setting-desc"/>
+                </VBox>
+              </HBox>
+
+              <Region styleClass="divider"/>
+
+              <HBox alignment="CENTER_LEFT" spacing="12.0" styleClass="pref-row">
+                <CheckBox selected="true" styleClass="pref-check"/>
+                <VBox spacing="2.0" HBox.hgrow="ALWAYS">
+                  <Label text="Weekly digest" styleClass="setting-title"/>
+                  <Label text="A summary of repository activity every Monday." styleClass="setting-desc"/>
+                </VBox>
+              </HBox>
+
+              <Region styleClass="divider"/>
+
+              <HBox alignment="CENTER_LEFT" spacing="12.0" styleClass="pref-row">
+                <CheckBox selected="true" styleClass="pref-check"/>
+                <VBox spacing="2.0" HBox.hgrow="ALWAYS">
+                  <Label text="Security alerts" styleClass="setting-title"/>
+                  <Label text="Dependabot, secret scanning and sign-in alerts." styleClass="setting-desc"/>
+                </VBox>
+              </HBox>
+
+              <Region styleClass="divider"/>
+
+              <HBox alignment="CENTER_LEFT" spacing="12.0" styleClass="pref-row">
+                <CheckBox styleClass="pref-check"/>
+                <VBox spacing="2.0" HBox.hgrow="ALWAYS">
+                  <Label text="Product updates" styleClass="setting-title"/>
+                  <Label text="Occasional news about GitHub Manager." styleClass="setting-desc"/>
+                </VBox>
+              </HBox>
+
+              <Region styleClass="divider"/>
+
+              <VBox spacing="8.0">
+                <Label text="Appearance" styleClass="form-label"/>
+                <HBox spacing="6.0" maxWidth="-Infinity" styleClass="segment-bar">
+                  <ToggleButton text="Dark" selected="true" toggleGroup="$themeGroup" styleClass="segment"/>
+                  <ToggleButton text="Light" toggleGroup="$themeGroup" styleClass="segment"/>
+                  <ToggleButton text="System" toggleGroup="$themeGroup" styleClass="segment"/>
+                </HBox>
+              </VBox>
+
+              <VBox spacing="8.0">
+                <Label text="Density" styleClass="form-label"/>
+                <HBox spacing="6.0" maxWidth="-Infinity" styleClass="segment-bar">
+                  <ToggleButton text="Comfortable" selected="true" toggleGroup="$densityGroup" styleClass="segment"/>
+                  <ToggleButton text="Compact" toggleGroup="$densityGroup" styleClass="segment"/>
+                </HBox>
+              </VBox>
+            </VBox>
+          </VBox>
+
+        </VBox>
+
+        <!-- ============================== RIGHT RAIL ============================== -->
+        <VBox prefWidth="320.0" minWidth="300.0" maxWidth="340.0" spacing="20.0">
+
+          <!-- PLAN -->
+          <VBox styleClass="card">
+            <HBox alignment="CENTER_LEFT" spacing="12.0" styleClass="card-header">
+              <VBox spacing="2.0">
+                <Label text="Plan &amp; billing" styleClass="card-title"/>
+                <Label text="Your current subscription" styleClass="card-subtitle"/>
+              </VBox>
+              <Region HBox.hgrow="ALWAYS"/>
+              <Label text="PRO" styleClass="badge-pro"/>
+            </HBox>
+            <VBox spacing="12.0" styleClass="card-body">
+              <HBox alignment="CENTER_LEFT" spacing="4.0">
+                <Label text="\$4" styleClass="plan-price"/>
+                <Label text="/ month" styleClass="plan-period"/>
+              </HBox>
+              <Label text="Renews Dec 12, 2026" styleClass="setting-desc"/>
+              <Region styleClass="divider"/>
+              <VBox spacing="7.0">
+                <HBox alignment="CENTER_LEFT" spacing="7.0">
+                  <Label text="✓" styleClass="text-green"/>
+                  <Label text="Unlimited private repositories" styleClass="plan-feature"/>
+                </HBox>
+                <HBox alignment="CENTER_LEFT" spacing="7.0">
+                  <Label text="✓" styleClass="text-green"/>
+                  <Label text="Advanced security features" styleClass="plan-feature"/>
+                </HBox>
+                <HBox alignment="CENTER_LEFT" spacing="7.0">
+                  <Label text="✓" styleClass="text-green"/>
+                  <Label text="2,000 Actions minutes / month" styleClass="plan-feature"/>
+                </HBox>
+              </VBox>
+              <Button text="Manage billing" mnemonicParsing="false" maxWidth="Infinity"
+                      styleClass="button-secondary"/>
+            </VBox>
+          </VBox>
+
+          <!-- API ACCESS -->
+          <VBox styleClass="card">
+            <HBox alignment="CENTER_LEFT" spacing="12.0" styleClass="card-header">
+              <VBox spacing="2.0">
+                <Label text="API access" styleClass="card-title"/>
+                <Label text="Personal access tokens" styleClass="card-subtitle"/>
+              </VBox>
+              <Region HBox.hgrow="ALWAYS"/>
+              <Label text="1" styleClass="contribution-count"/>
+            </HBox>
+            <VBox spacing="10.0" styleClass="card-body">
+              <Label text="Personal access token" styleClass="form-label"/>
+              <HBox alignment="CENTER_LEFT" spacing="8.0">
+                <Label text="ghp_••••••••••••••••" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                       styleClass="token-value"/>
+                <Button text="Copy" mnemonicParsing="false" styleClass="button-secondary, button-compact"/>
+              </HBox>
+              <Label text="Scopes: repo, read:user, workflow" styleClass="form-hint"/>
+              <Region styleClass="divider"/>
+              <HBox alignment="CENTER_LEFT" spacing="8.0">
+                <Label text="Last used 2 hours ago" styleClass="muted-xs"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Button text="Regenerate" mnemonicParsing="false" styleClass="link-button"/>
+              </HBox>
+            </VBox>
+          </VBox>
+
+          <!-- DANGER ZONE -->
+          <VBox styleClass="card, danger-zone">
+            <HBox alignment="CENTER_LEFT" spacing="12.0" styleClass="card-header">
+              <VBox spacing="2.0">
+                <Label text="Danger zone" styleClass="card-title, danger-title"/>
+                <Label text="Irreversible account actions" styleClass="card-subtitle"/>
+              </VBox>
+              <Region HBox.hgrow="ALWAYS"/>
+              <Label text="Careful" styleClass="badge-danger"/>
+            </HBox>
+            <VBox spacing="12.0" styleClass="card-body">
+              <Label text="Deleting your account removes all repositories, issues and connected applications. This action cannot be undone."
+                     wrapText="true" styleClass="danger-desc"/>
+              <HBox alignment="CENTER_LEFT" spacing="8.0">
+                <Button text="Delete account" mnemonicParsing="false" styleClass="button-danger"/>
+                <Button text="Transfer ownership" mnemonicParsing="false" styleClass="button-secondary"/>
+              </HBox>
+            </VBox>
+          </VBox>
+
+        </VBox>
+      </HBox>
+
+      <!-- ============================== FOOTER ============================== -->
+      <HBox alignment="CENTER_LEFT" spacing="8.0" styleClass="content-footer">
+        <Label text="GitHub Manager 1.0" styleClass="footer-text"/>
+        <Label text="·" styleClass="footer-text"/>
+        <Label text="Connected as @irondev" styleClass="footer-text"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Label text="●" styleClass="status-dot"/>
+        <Label text="All systems operational" styleClass="footer-text"/>
+      </HBox>
+
+    </VBox>
+  </content>
+</ScrollPane>

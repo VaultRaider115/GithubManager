@@ -1,0 +1,6 @@
+**/resources/application.properties
+target/
+.settings/
+.classpath
+.tmp-tools/
+target/

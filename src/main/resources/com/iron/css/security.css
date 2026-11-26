@@ -1,0 +1,174 @@
+/* ============================================================
+   Security screen — score ring, sessions and connected apps
+   ============================================================ */
+
+/* ============================== SECURITY HERO ============================== */
+
+.security-hero {
+    -fx-background-color: linear-gradient(to bottom right, #12251a, #161b22 62%);
+    -fx-background-radius: 12;
+    -fx-border-color: #30363d;
+    -fx-border-radius: 12;
+    -fx-border-width: 1;
+    -fx-padding: 24;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.22), 18, 0, 0, 7);
+}
+
+.security-hero-title {
+    -fx-text-fill: #e6edf3;
+    -fx-font-size: 22px;
+    -fx-font-weight: 700;
+}
+
+.security-hero-desc {
+    -fx-text-fill: #8b949e;
+    -fx-font-size: 11px;
+}
+
+/* ============================== SCORE RING ============================== */
+
+.score-ring {
+    -fx-background-color: rgba(1, 4, 9, 0.45);
+    -fx-background-radius: 999;
+}
+
+.score-track {
+    -fx-fill: transparent;
+    -fx-stroke: #21262d;
+    -fx-stroke-width: 8;
+}
+
+.score-arc {
+    -fx-fill: transparent;
+    -fx-stroke: #3fb950;
+    -fx-stroke-width: 8;
+}
+
+.score-number {
+    -fx-text-fill: #e6edf3;
+    -fx-font-size: 32px;
+    -fx-font-weight: 700;
+}
+
+.score-caption {
+    -fx-text-fill: #8b949e;
+    -fx-font-size: 9px;
+}
+
+.score-stats {
+    -fx-background-color: rgba(1, 4, 9, 0.30);
+    -fx-background-radius: 10;
+    -fx-border-color: #21262d;
+    -fx-border-radius: 10;
+    -fx-border-width: 1;
+    -fx-padding: 12 4;
+}
+
+.score-stat {
+    -fx-padding: 0 14;
+}
+
+.score-stat-value {
+    -fx-text-fill: #e6edf3;
+    -fx-font-size: 16px;
+    -fx-font-weight: 700;
+}
+
+.score-stat-label {
+    -fx-text-fill: #8b949e;
+    -fx-font-size: 9px;
+}
+
+/* ============================== SESSIONS ============================== */
+
+.session-row {
+    -fx-padding: 10 0;
+}
+
+.session-icon {
+    -fx-background-radius: 9;
+    -fx-border-radius: 9;
+    -fx-border-width: 1;
+    -fx-alignment: center;
+}
+
+.session-icon-green {
+    -fx-background-color: rgba(63, 185, 80, 0.12);
+    -fx-border-color: rgba(63, 185, 80, 0.26);
+}
+
+.session-icon-blue {
+    -fx-background-color: rgba(88, 166, 255, 0.12);
+    -fx-border-color: rgba(88, 166, 255, 0.26);
+}
+
+.session-icon-purple {
+    -fx-background-color: rgba(188, 140, 255, 0.12);
+    -fx-border-color: rgba(188, 140, 255, 0.26);
+}
+
+.session-glyph {
+    -fx-font-size: 9px;
+    -fx-font-weight: 700;
+}
+
+.session-icon-green .session-glyph {
+    -fx-text-fill: #3fb950;
+}
+
+.session-icon-blue .session-glyph {
+    -fx-text-fill: #58a6ff;
+}
+
+.session-icon-purple .session-glyph {
+    -fx-text-fill: #bc8cff;
+}
+
+/* ============================== CONNECTED APPS ============================== */
+
+.app-row {
+    -fx-padding: 10 0;
+}
+
+.app-mark {
+    -fx-background-radius: 9;
+    -fx-alignment: center;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 9px;
+    -fx-font-weight: 700;
+}
+
+.app-mark-blue {
+    -fx-background-color: linear-gradient(to bottom right, #1f6feb, #388bfd);
+}
+
+.app-mark-purple {
+    -fx-background-color: linear-gradient(to bottom right, #8957e5, #bc8cff);
+}
+
+.app-mark-orange {
+    -fx-background-color: linear-gradient(to bottom right, #9e6a03, #d29922);
+}
+
+/* ============================== ADVISORIES ============================== */
+
+.advisory-summary {
+    -fx-background-color: rgba(1, 4, 9, 0.30);
+    -fx-background-radius: 9;
+    -fx-padding: 10 0;
+}
+
+.advisory-block {
+    -fx-padding: 0 10;
+}
+
+.advisory-number {
+    -fx-text-fill: #e6edf3;
+    -fx-font-size: 20px;
+    -fx-font-weight: 700;
+}
+
+.advisory-label {
+    -fx-text-fill: #8b949e;
+    -fx-font-size: 9px;
+}

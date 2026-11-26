@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.SVGPath?>
+
+<ScrollPane fitToWidth="true" hbarPolicy="NEVER" vbarPolicy="AS_NEEDED"
+            styleClass="screen-scroll" stylesheets="@../css/repositories.css"
+            xmlns="http://javafx.com/javafx/27.0.1.1" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.iron.Controllers.RepositoriesController">
+  <content>
+    <VBox spacing="20.0" styleClass="screen">
+
+      <!-- ============================== SCREEN HEADER ============================== -->
+      <HBox alignment="CENTER_LEFT" spacing="12.0" styleClass="screen-header">
+        <VBox spacing="2.0">
+          <Label text="REPOSITORIES" styleClass="screen-eyebrow"/>
+          <Label text="Repositories" styleClass="screen-title"/>
+          <Label fx:id="reposSubtitle" id="reposSubtitle" text="Loading repositories…" styleClass="screen-subtitle"/>
+        </VBox>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Button text="Import" mnemonicParsing="false" styleClass="button-secondary"/>
+        <Button text="New repository" mnemonicParsing="false" styleClass="button-primary">
+          <graphic>
+            <SVGPath content="M7 1h2v6h6v2H9v6H7V9H1V7h6z" scaleX="0.8" scaleY="0.8"
+                     styleClass="button-icon-fill"/>
+          </graphic>
+        </Button>
+      </HBox>
+
+      <!-- ============================== SUMMARY ============================== -->
+      <HBox alignment="CENTER_LEFT" spacing="12.0" styleClass="mini-stat-row">
+        <VBox spacing="3.0" HBox.hgrow="ALWAYS" styleClass="mini-stat">
+          <Label fx:id="repoPublic" id="repoPublic" text="0" styleClass="mini-stat-value"/>
+          <Label text="Public repositories" styleClass="mini-stat-label"/>
+        </VBox>
+        <VBox spacing="3.0" HBox.hgrow="ALWAYS" styleClass="mini-stat">
+          <Label fx:id="repoPrivate" id="repoPrivate" text="0" styleClass="mini-stat-value"/>
+          <Label text="Private repositories" styleClass="mini-stat-label"/>
+        </VBox>
+        <VBox spacing="3.0" HBox.hgrow="ALWAYS" styleClass="mini-stat">
+          <Label fx:id="repoStars" id="repoStars" text="0" styleClass="mini-stat-value, text-blue"/>
+          <Label text="Stars earned" styleClass="mini-stat-label"/>
+        </VBox>
+        <VBox spacing="3.0" HBox.hgrow="ALWAYS" styleClass="mini-stat">
+          <Label fx:id="repoForks" id="repoForks" text="0" styleClass="mini-stat-value, text-purple"/>
+          <Label text="Forks" styleClass="mini-stat-label"/>
+        </VBox>
+      </HBox>
+
+      <!-- ============================== FILTERS ============================== -->
+      <VBox spacing="10.0" styleClass="filter-panel">
+        <HBox alignment="CENTER_LEFT" spacing="10.0" styleClass="filter-bar">
+          <TextField fx:id="searchField" promptText="Find a repository…" prefWidth="300.0" minWidth="180.0"
+                     styleClass="search-field, filter-search"/>
+          <Region HBox.hgrow="ALWAYS"/>
+          <Label text="Sort: Recently updated" styleClass="filter-sort"/>
+          <Button text="Filters" mnemonicParsing="false" styleClass="button-secondary"/>
+        </HBox>
+        <HBox fx:id="filterChipsBox" alignment="CENTER_LEFT" spacing="7.0" styleClass="filter-chips">
+          <Button text="All" onAction="#handleFilter" mnemonicParsing="false" styleClass="filter-chip, filter-chip-active"/>
+          <Button text="Public" onAction="#handleFilter" mnemonicParsing="false" styleClass="filter-chip"/>
+          <Button text="Private" onAction="#handleFilter" mnemonicParsing="false" styleClass="filter-chip"/>
+          <Button text="Archived" onAction="#handleFilter" mnemonicParsing="false" styleClass="filter-chip"/>
+          <Button text="Mirrors" onAction="#handleFilter" mnemonicParsing="false" styleClass="filter-chip"/>
+          <Region HBox.hgrow="ALWAYS"/>
+          <Label fx:id="repoCount" id="repoCount" text="Loading…" styleClass="filter-count"/>
+        </HBox>
+      </VBox>
+
+      <!-- ============================== MAIN GRID ============================== -->
+      <HBox alignment="TOP_LEFT" spacing="20.0">
+
+        <VBox spacing="12.0" HBox.hgrow="ALWAYS" minWidth="0.0">
+
+          <VBox fx:id="repoList" id="repoList" spacing="12.0"/>
+
+        </VBox>
+
+        <!-- ============================== RIGHT RAIL ============================== -->
+        <VBox prefWidth="320.0" minWidth="300.0" maxWidth="340.0" spacing="20.0">
+
+          <!-- LANGUAGES -->
+          <VBox styleClass="card">
+            <HBox alignment="CENTER_LEFT" spacing="12.0" styleClass="card-header">
+              <VBox spacing="2.0">
+                <Label text="Languages" styleClass="card-title"/>
+                <Label text="Across public repositories" styleClass="card-subtitle"/>
+              </VBox>
+              <Region HBox.hgrow="ALWAYS"/>
+              <Label fx:id="languageCount" id="languageCount" text="0" styleClass="contribution-count"/>
+            </HBox>
+            <VBox fx:id="languagesBox" id="languagesBox" spacing="12.0" styleClass="card-body"/>
+          </VBox>
+
+          <!-- REPOSITORY HEALTH -->
+          <VBox styleClass="card">
+            <HBox alignment="CENTER_LEFT" spacing="12.0" styleClass="card-header">
+              <VBox spacing="2.0">
+                <Label text="Repository health" styleClass="card-title"/>
+                <Label text="Checks across your projects" styleClass="card-subtitle"/>
+              </VBox>
+              <Region HBox.hgrow="ALWAYS"/>
+              <Label text="Good" styleClass="badge-success"/>
+            </HBox>
+            <VBox spacing="0.0" styleClass="card-body">
+              <HBox alignment="CENTER_LEFT" spacing="10.0" styleClass="health-row">
+                <Label text="●" styleClass="health-dot, health-dot-green"/>
+                <VBox spacing="2.0" HBox.hgrow="ALWAYS">
+                  <Label text="README present" styleClass="setting-title"/>
+                  <Label text="22 of 24 repositories" styleClass="setting-desc"/>
+                </VBox>
+                <Label text="92%" styleClass="health-value"/>
+              </HBox>
+              <Region styleClass="divider"/>
+              <HBox alignment="CENTER_LEFT" spacing="10.0" styleClass="health-row">
+                <Label text="●" styleClass="health-dot, health-dot-green"/>
+                <VBox spacing="2.0" HBox.hgrow="ALWAYS">
+                  <Label text="License detected" styleClass="setting-title"/>
+                  <Label text="MIT, Apache 2.0, Unlicense" styleClass="setting-desc"/>
+                </VBox>
+                <Label text="21" styleClass="health-value"/>
+              </HBox>
+              <Region styleClass="divider"/>
+              <HBox alignment="CENTER_LEFT" spacing="10.0" styleClass="health-row">
+                <Label text="●" styleClass="health-dot, health-dot-orange"/>
+                <VBox spacing="2.0" HBox.hgrow="ALWAYS">
+                  <Label text="Dependabot alerts" styleClass="setting-title"/>
+                  <Label text="2 moderate · 5 low" styleClass="setting-desc"/>
+                </VBox>
+                <Label text="Review" styleClass="security-link"/>
+              </HBox>
+              <Region styleClass="divider"/>
+              <HBox alignment="CENTER_LEFT" spacing="10.0" styleClass="health-row">
+                <Label text="●" styleClass="health-dot, health-dot-green"/>
+                <VBox spacing="2.0" HBox.hgrow="ALWAYS">
+                  <Label text="Code scanning" styleClass="setting-title"/>
+                  <Label text="Enabled on 18 repositories" styleClass="setting-desc"/>
+                </VBox>
+                <Label text="On" styleClass="badge-success"/>
+              </HBox>
+            </VBox>
+          </VBox>
+
+          <!-- PINNED -->
+          <VBox styleClass="card">
+            <HBox alignment="CENTER_LEFT" spacing="12.0" styleClass="card-header">
+              <VBox spacing="2.0">
+                <Label text="Pinned repositories" styleClass="card-title"/>
+                <Label text="Shortcuts for this workspace" styleClass="card-subtitle"/>
+              </VBox>
+              <Region HBox.hgrow="ALWAYS"/>
+              <Button text="Edit" mnemonicParsing="false" styleClass="link-button"/>
+            </HBox>
+            <VBox fx:id="pinnedBox" id="pinnedBox" spacing="0.0" styleClass="card-body"/>
+          </VBox>
+
+        </VBox>
+      </HBox>
+
+      <!-- ============================== FOOTER ============================== -->
+      <HBox alignment="CENTER_LEFT" spacing="8.0" styleClass="content-footer">
+        <Label text="GitHub Manager 1.0" styleClass="footer-text"/>
+        <Label text="·" styleClass="footer-text"/>
+        <Label text="Connected as @irondev" styleClass="footer-text"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Label text="●" styleClass="status-dot"/>
+        <Label text="All systems operational" styleClass="footer-text"/>
+      </HBox>
+
+    </VBox>
+  </content>
+</ScrollPane>

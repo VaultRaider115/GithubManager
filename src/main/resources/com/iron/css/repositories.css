@@ -1,0 +1,221 @@
+/* ============================================================
+   Repositories screen — filters, repository cards and insights
+   ============================================================ */
+
+/* ============================== FILTERS ============================== */
+
+.filter-panel {
+    -fx-background-color: #161b22;
+    -fx-background-radius: 10;
+    -fx-border-color: #30363d;
+    -fx-border-radius: 10;
+    -fx-border-width: 1;
+    -fx-padding: 12 14;
+}
+
+.filter-bar {
+    -fx-spacing: 10;
+}
+
+.filter-search {
+    -fx-pref-width: 300;
+}
+
+.filter-sort {
+    -fx-text-fill: #8b949e;
+    -fx-font-size: 10px;
+}
+
+.filter-chips {
+    -fx-spacing: 7;
+}
+
+.filter-chip {
+    -fx-background-color: transparent;
+    -fx-background-insets: 0;
+    -fx-background-radius: 999;
+    -fx-border-color: #30363d;
+    -fx-border-radius: 999;
+    -fx-border-width: 1;
+    -fx-text-fill: #8b949e;
+    -fx-font-size: 10px;
+    -fx-font-weight: 600;
+    -fx-padding: 4 10;
+    -fx-cursor: hand;
+}
+
+.filter-chip:hover {
+    -fx-background-color: #21262d;
+    -fx-text-fill: #e6edf3;
+}
+
+.filter-chip:focused {
+    -fx-border-color: #58a6ff;
+    -fx-effect: none;
+}
+
+.filter-chip-active {
+    -fx-background-color: rgba(56, 139, 253, 0.15);
+    -fx-border-color: rgba(88, 166, 255, 0.45);
+    -fx-text-fill: #58a6ff;
+}
+
+.filter-chip-active:hover {
+    -fx-background-color: rgba(56, 139, 253, 0.22);
+    -fx-text-fill: #79c0ff;
+}
+
+.filter-count {
+    -fx-text-fill: #8b949e;
+    -fx-font-size: 10px;
+}
+
+/* ============================== REPOSITORY CARDS ============================== */
+
+.repo-card {
+    -fx-background-color: #161b22;
+    -fx-background-radius: 10;
+    -fx-border-color: #30363d;
+    -fx-border-radius: 10;
+    -fx-border-width: 1;
+    -fx-padding: 14 16;
+    -fx-spacing: 8;
+}
+
+.repo-card:hover {
+    -fx-border-color: #484f58;
+}
+
+.repo-card-icon {
+    -fx-fill: #8b949e;
+}
+
+.repo-card-title {
+    -fx-text-fill: #58a6ff;
+    -fx-font-size: 14px;
+    -fx-font-weight: 700;
+}
+
+.repo-card-desc {
+    -fx-text-fill: #8b949e;
+    -fx-font-size: 11px;
+}
+
+.repo-branch {
+    -fx-background-color: #0d1117;
+    -fx-background-radius: 5;
+    -fx-border-color: #30363d;
+    -fx-border-radius: 5;
+    -fx-border-width: 1;
+    -fx-text-fill: #8b949e;
+    -fx-font-size: 9px;
+    -fx-padding: 1 6;
+}
+
+.topic-list {
+    -fx-padding: 2 0 0 0;
+}
+
+.repo-topic {
+    -fx-background-color: rgba(56, 139, 253, 0.12);
+    -fx-background-radius: 999;
+    -fx-text-fill: #58a6ff;
+    -fx-font-size: 9px;
+    -fx-font-weight: 600;
+    -fx-padding: 2 8;
+}
+
+/* ============================== LANGUAGES ============================== */
+
+.lang-name {
+    -fx-text-fill: #c9d1d9;
+    -fx-font-size: 10px;
+    -fx-font-weight: 600;
+}
+
+.lang-percent {
+    -fx-text-fill: #8b949e;
+    -fx-font-size: 9px;
+}
+
+.lang-bar {
+    -fx-accent: #8b949e;
+    -fx-min-height: 6px;
+    -fx-pref-height: 6px;
+    -fx-max-height: 6px;
+    -fx-padding: 0;
+}
+
+.lang-bar > .track {
+    -fx-background-color: #21262d;
+    -fx-background-radius: 999;
+    -fx-background-insets: 0;
+}
+
+.lang-bar > .bar {
+    -fx-background-color: -fx-accent;
+    -fx-background-radius: 999;
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+}
+
+.lang-bar-java > .bar {
+    -fx-background-color: #f1e05a;
+}
+
+.lang-bar-ts > .bar {
+    -fx-background-color: #3178c6;
+}
+
+.lang-bar-go > .bar {
+    -fx-background-color: #00add8;
+}
+
+.lang-bar-other > .bar {
+    -fx-background-color: #8b949e;
+}
+
+/* ============================== REPOSITORY HEALTH ============================== */
+
+.health-row {
+    -fx-padding: 10 0;
+}
+
+.health-dot {
+    -fx-font-size: 9px;
+}
+
+.health-dot-green {
+    -fx-text-fill: #3fb950;
+}
+
+.health-dot-orange {
+    -fx-text-fill: #d29922;
+}
+
+.health-value {
+    -fx-text-fill: #8b949e;
+    -fx-font-size: 10px;
+    -fx-font-weight: 600;
+}
+
+/* ============================== PINNED ============================== */
+
+.pinned-row {
+    -fx-padding: 9 0;
+}
+
+.pinned-icon {
+    -fx-fill: #8b949e;
+}
+
+.pinned-name {
+    -fx-text-fill: #58a6ff;
+    -fx-font-size: 11px;
+    -fx-font-weight: 600;
+}
+
+.pinned-desc {
+    -fx-text-fill: #8b949e;
+    -fx-font-size: 9px;
+}

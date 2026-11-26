@@ -1,0 +1,370 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.SVGPath?>
+
+<ScrollPane fitToWidth="true" hbarPolicy="NEVER" vbarPolicy="AS_NEEDED"
+            styleClass="screen-scroll" stylesheets="@../css/overview.css"
+            xmlns="http://javafx.com/javafx/27.0.1.1" xmlns:fx="http://javafx.com/fxml/1">
+  <content>
+    <VBox spacing="20.0" styleClass="screen">
+
+      <!-- ============================== SCREEN HEADER ============================== -->
+      <HBox alignment="CENTER_LEFT" spacing="12.0" styleClass="screen-header">
+        <VBox spacing="2.0">
+          <Label text="OVERVIEW" styleClass="screen-eyebrow"/>
+          <Label text="Your GitHub at a glance" styleClass="screen-title"/>
+          <Label text="Profile, repositories and activity in one place." styleClass="screen-subtitle"/>
+        </VBox>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Label id="overviewStatus" text="Loading GitHub…" styleClass="screen-meta"/>
+        <Button id="overviewRefresh" text="Refresh" mnemonicParsing="false" styleClass="button-secondary"/>
+      </HBox>
+
+      <!-- ============================== PROFILE HERO ============================== -->
+      <VBox styleClass="hero-card">
+        <Region prefHeight="70.0" maxWidth="Infinity" styleClass="hero-cover"/>
+        <HBox alignment="TOP_LEFT" spacing="18.0" styleClass="hero-body">
+          <StackPane prefWidth="68.0" prefHeight="68.0" minWidth="68.0" maxWidth="68.0"
+                     minHeight="68.0" maxHeight="68.0" styleClass="avatar, avatar-lg">
+            <Label id="heroInitials" text="ID" styleClass="avatar-initials, avatar-initials-lg"/>
+            <Circle radius="6.0" fill="#3fb950" stroke="#161b22" strokeWidth="3.0"
+                    StackPane.alignment="BOTTOM_RIGHT"/>
+          </StackPane>
+          <VBox spacing="5.0" HBox.hgrow="ALWAYS" minWidth="0.0">
+            <HBox alignment="CENTER_LEFT" spacing="8.0">
+              <Label id="heroName" text="Loading…" styleClass="hero-name"/>
+              <Label id="heroPlan" text="PRO" styleClass="badge-pro"/>
+              <Label id="heroAvailable" text="Available" styleClass="badge-success"/>
+            </HBox>
+            <Label id="heroHandle" text="\@github" styleClass="hero-handle"/>
+            <Label id="heroBio" text="Loading profile…" wrapText="true" styleClass="hero-bio"/>
+            <HBox alignment="CENTER_LEFT" spacing="8.0">
+              <Label id="heroLocation" text="Location" styleClass="meta"/>
+              <Label text="·" styleClass="meta-dot"/>
+              <Label id="heroBlog" text="website" styleClass="meta, meta-link"/>
+              <Label text="·" styleClass="meta-dot"/>
+              <Label id="heroJoined" text="Joined" styleClass="meta"/>
+            </HBox>
+          </VBox>
+          <HBox alignment="TOP_RIGHT" spacing="8.0" minWidth="-Infinity">
+            <Button text="Edit profile" mnemonicParsing="false" minWidth="-Infinity" styleClass="button-secondary"/>
+            <Button text="···" mnemonicParsing="false" minWidth="-Infinity" styleClass="button-icon"/>
+          </HBox>
+        </HBox>
+        <HBox alignment="CENTER_LEFT" styleClass="hero-stats">
+          <VBox alignment="CENTER" maxWidth="Infinity" HBox.hgrow="ALWAYS" styleClass="stat-block">
+            <Label id="statRepos" text="0" styleClass="stat-number"/>
+            <Label text="Repositories" styleClass="stat-label"/>
+          </VBox>
+          <Region styleClass="v-divider"/>
+          <VBox alignment="CENTER" maxWidth="Infinity" HBox.hgrow="ALWAYS" styleClass="stat-block">
+            <Label id="statFollowers" text="0" styleClass="stat-number"/>
+            <Label text="Followers" styleClass="stat-label"/>
+          </VBox>
+          <Region styleClass="v-divider"/>
+          <VBox alignment="CENTER" maxWidth="Infinity" HBox.hgrow="ALWAYS" styleClass="stat-block">
+            <Label id="statFollowing" text="0" styleClass="stat-number"/>
+            <Label text="Following" styleClass="stat-label"/>
+          </VBox>
+          <Region styleClass="v-divider"/>
+          <VBox alignment="CENTER" maxWidth="Infinity" HBox.hgrow="ALWAYS" styleClass="stat-block">
+            <Label id="statStars" text="0" styleClass="stat-number"/>
+            <Label text="Stars earned" styleClass="stat-label"/>
+          </VBox>
+        </HBox>
+      </VBox>
+
+      <!-- ============================== MAIN GRID ============================== -->
+      <HBox alignment="TOP_LEFT" spacing="20.0">
+
+        <VBox spacing="20.0" HBox.hgrow="ALWAYS" minWidth="0.0">
+
+          <!-- POPULAR REPOSITORIES -->
+          <VBox styleClass="card">
+            <HBox alignment="CENTER_LEFT" spacing="12.0" styleClass="card-header">
+              <VBox spacing="2.0">
+                <Label text="Popular repositories" styleClass="card-title"/>
+                <Label text="Your most starred public work" styleClass="card-subtitle"/>
+              </VBox>
+              <Region HBox.hgrow="ALWAYS"/>
+              <Button text="View all" mnemonicParsing="false" styleClass="link-button"/>
+            </HBox>
+
+            <VBox id="overviewRepos"/>
+          </VBox>
+
+          <!-- RECENT ACTIVITY -->
+          <VBox styleClass="card">
+            <HBox alignment="CENTER_LEFT" spacing="12.0" styleClass="card-header">
+              <VBox spacing="2.0">
+                <Label text="Recent activity" styleClass="card-title"/>
+                <Label text="What you have been working on" styleClass="card-subtitle"/>
+              </VBox>
+              <Region HBox.hgrow="ALWAYS"/>
+              <Button text="View timeline" mnemonicParsing="false" styleClass="link-button"/>
+            </HBox>
+
+            <VBox id="overviewActivity"/>
+          </VBox>
+
+        </VBox>
+
+        <VBox prefWidth="330.0" minWidth="310.0" maxWidth="350.0" spacing="20.0">
+
+          <!-- CONTRIBUTIONS -->
+          <VBox styleClass="card">
+            <HBox alignment="CENTER_LEFT" spacing="12.0" styleClass="card-header">
+              <VBox spacing="2.0">
+                <Label text="Contribution activity" styleClass="card-title"/>
+                <Label text="Last 16 weeks" styleClass="card-subtitle"/>
+              </VBox>
+              <Region HBox.hgrow="ALWAYS"/>
+              <Label text="184" styleClass="contribution-count"/>
+            </HBox>
+            <VBox spacing="12.0" styleClass="card-body">
+              <HBox alignment="CENTER_LEFT" spacing="8.0">
+                <Label text="184 contributions" styleClass="card-title-sm"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Label text="12 day streak" styleClass="badge-success"/>
+              </HBox>
+
+              <GridPane alignment="CENTER_LEFT" hgap="4.0" vgap="4.0" styleClass="heatmap">
+                                <Region GridPane.columnIndex="0" GridPane.rowIndex="0" styleClass="heat-cell, heat-0"/>
+                <Region GridPane.columnIndex="1" GridPane.rowIndex="0" styleClass="heat-cell, heat-1"/>
+                <Region GridPane.columnIndex="2" GridPane.rowIndex="0" styleClass="heat-cell, heat-3"/>
+                <Region GridPane.columnIndex="3" GridPane.rowIndex="0" styleClass="heat-cell, heat-1"/>
+                <Region GridPane.columnIndex="4" GridPane.rowIndex="0" styleClass="heat-cell, heat-2"/>
+                <Region GridPane.columnIndex="5" GridPane.rowIndex="0" styleClass="heat-cell, heat-0"/>
+                <Region GridPane.columnIndex="6" GridPane.rowIndex="0" styleClass="heat-cell, heat-1"/>
+                <Region GridPane.columnIndex="7" GridPane.rowIndex="0" styleClass="heat-cell, heat-3"/>
+                <Region GridPane.columnIndex="8" GridPane.rowIndex="0" styleClass="heat-cell, heat-1"/>
+                <Region GridPane.columnIndex="9" GridPane.rowIndex="0" styleClass="heat-cell, heat-2"/>
+                <Region GridPane.columnIndex="10" GridPane.rowIndex="0" styleClass="heat-cell, heat-0"/>
+                <Region GridPane.columnIndex="11" GridPane.rowIndex="0" styleClass="heat-cell, heat-1"/>
+                <Region GridPane.columnIndex="12" GridPane.rowIndex="0" styleClass="heat-cell, heat-3"/>
+                <Region GridPane.columnIndex="13" GridPane.rowIndex="0" styleClass="heat-cell, heat-1"/>
+                <Region GridPane.columnIndex="14" GridPane.rowIndex="0" styleClass="heat-cell, heat-2"/>
+                <Region GridPane.columnIndex="15" GridPane.rowIndex="0" styleClass="heat-cell, heat-0"/>
+
+                <Region GridPane.columnIndex="0" GridPane.rowIndex="1" styleClass="heat-cell, heat-1"/>
+                <Region GridPane.columnIndex="1" GridPane.rowIndex="1" styleClass="heat-cell, heat-3"/>
+                <Region GridPane.columnIndex="2" GridPane.rowIndex="1" styleClass="heat-cell, heat-0"/>
+                <Region GridPane.columnIndex="3" GridPane.rowIndex="1" styleClass="heat-cell, heat-2"/>
+                <Region GridPane.columnIndex="4" GridPane.rowIndex="1" styleClass="heat-cell, heat-0"/>
+                <Region GridPane.columnIndex="5" GridPane.rowIndex="1" styleClass="heat-cell, heat-2"/>
+                <Region GridPane.columnIndex="6" GridPane.rowIndex="1" styleClass="heat-cell, heat-0"/>
+                <Region GridPane.columnIndex="7" GridPane.rowIndex="1" styleClass="heat-cell, heat-2"/>
+                <Region GridPane.columnIndex="8" GridPane.rowIndex="1" styleClass="heat-cell, heat-4"/>
+                <Region GridPane.columnIndex="9" GridPane.rowIndex="1" styleClass="heat-cell, heat-2"/>
+                <Region GridPane.columnIndex="10" GridPane.rowIndex="1" styleClass="heat-cell, heat-4"/>
+                <Region GridPane.columnIndex="11" GridPane.rowIndex="1" styleClass="heat-cell, heat-2"/>
+                <Region GridPane.columnIndex="12" GridPane.rowIndex="1" styleClass="heat-cell, heat-0"/>
+                <Region GridPane.columnIndex="13" GridPane.rowIndex="1" styleClass="heat-cell, heat-2"/>
+                <Region GridPane.columnIndex="14" GridPane.rowIndex="1" styleClass="heat-cell, heat-0"/>
+                <Region GridPane.columnIndex="15" GridPane.rowIndex="1" styleClass="heat-cell, heat-2"/>
+
+                <Region GridPane.columnIndex="0" GridPane.rowIndex="2" styleClass="heat-cell, heat-1"/>
+                <Region GridPane.columnIndex="1" GridPane.rowIndex="2" styleClass="heat-cell, heat-4"/>
+                <Region GridPane.columnIndex="2" GridPane.rowIndex="2" styleClass="heat-cell, heat-2"/>
+                <Region GridPane.columnIndex="3" GridPane.rowIndex="2" styleClass="heat-cell, heat-0"/>
+                <Region GridPane.columnIndex="4" GridPane.rowIndex="2" styleClass="heat-cell, heat-2"/>
+                <Region GridPane.columnIndex="5" GridPane.rowIndex="2" styleClass="heat-cell, heat-0"/>
+                <Region GridPane.columnIndex="6" GridPane.rowIndex="2" styleClass="heat-cell, heat-4"/>
+                <Region GridPane.columnIndex="7" GridPane.rowIndex="2" styleClass="heat-cell, heat-1"/>
+                <Region GridPane.columnIndex="8" GridPane.rowIndex="2" styleClass="heat-cell, heat-4"/>
+                <Region GridPane.columnIndex="9" GridPane.rowIndex="2" styleClass="heat-cell, heat-2"/>
+                <Region GridPane.columnIndex="10" GridPane.rowIndex="2" styleClass="heat-cell, heat-0"/>
+                <Region GridPane.columnIndex="11" GridPane.rowIndex="2" styleClass="heat-cell, heat-3"/>
+                <Region GridPane.columnIndex="12" GridPane.rowIndex="2" styleClass="heat-cell, heat-1"/>
+                <Region GridPane.columnIndex="13" GridPane.rowIndex="2" styleClass="heat-cell, heat-4"/>
+                <Region GridPane.columnIndex="14" GridPane.rowIndex="2" styleClass="heat-cell, heat-2"/>
+                <Region GridPane.columnIndex="15" GridPane.rowIndex="2" styleClass="heat-cell, heat-4"/>
+
+                <Region GridPane.columnIndex="0" GridPane.rowIndex="3" styleClass="heat-cell, heat-2"/>
+                <Region GridPane.columnIndex="1" GridPane.rowIndex="3" styleClass="heat-cell, heat-1"/>
+                <Region GridPane.columnIndex="2" GridPane.rowIndex="3" styleClass="heat-cell, heat-3"/>
+                <Region GridPane.columnIndex="3" GridPane.rowIndex="3" styleClass="heat-cell, heat-2"/>
+                <Region GridPane.columnIndex="4" GridPane.rowIndex="3" styleClass="heat-cell, heat-1"/>
+                <Region GridPane.columnIndex="5" GridPane.rowIndex="3" styleClass="heat-cell, heat-4"/>
+                <Region GridPane.columnIndex="6" GridPane.rowIndex="3" styleClass="heat-cell, heat-2"/>
+                <Region GridPane.columnIndex="7" GridPane.rowIndex="3" styleClass="heat-cell, heat-0"/>
+                <Region GridPane.columnIndex="8" GridPane.rowIndex="3" styleClass="heat-cell, heat-4"/>
+                <Region GridPane.columnIndex="9" GridPane.rowIndex="3" styleClass="heat-cell, heat-2"/>
+                <Region GridPane.columnIndex="10" GridPane.rowIndex="3" styleClass="heat-cell, heat-0"/>
+                <Region GridPane.columnIndex="11" GridPane.rowIndex="3" styleClass="heat-cell, heat-0"/>
+                <Region GridPane.columnIndex="12" GridPane.rowIndex="3" styleClass="heat-cell, heat-2"/>
+                <Region GridPane.columnIndex="13" GridPane.rowIndex="3" styleClass="heat-cell, heat-1"/>
+                <Region GridPane.columnIndex="14" GridPane.rowIndex="3" styleClass="heat-cell, heat-3"/>
+                <Region GridPane.columnIndex="15" GridPane.rowIndex="3" styleClass="heat-cell, heat-3"/>
+
+                <Region GridPane.columnIndex="0" GridPane.rowIndex="4" styleClass="heat-cell, heat-3"/>
+                <Region GridPane.columnIndex="1" GridPane.rowIndex="4" styleClass="heat-cell, heat-2"/>
+                <Region GridPane.columnIndex="2" GridPane.rowIndex="4" styleClass="heat-cell, heat-0"/>
+                <Region GridPane.columnIndex="3" GridPane.rowIndex="4" styleClass="heat-cell, heat-0"/>
+                <Region GridPane.columnIndex="4" GridPane.rowIndex="4" styleClass="heat-cell, heat-3"/>
+                <Region GridPane.columnIndex="5" GridPane.rowIndex="4" styleClass="heat-cell, heat-2"/>
+                <Region GridPane.columnIndex="6" GridPane.rowIndex="4" styleClass="heat-cell, heat-1"/>
+                <Region GridPane.columnIndex="7" GridPane.rowIndex="4" styleClass="heat-cell, heat-0"/>
+                <Region GridPane.columnIndex="8" GridPane.rowIndex="4" styleClass="heat-cell, heat-3"/>
+                <Region GridPane.columnIndex="9" GridPane.rowIndex="4" styleClass="heat-cell, heat-2"/>
+                <Region GridPane.columnIndex="10" GridPane.rowIndex="4" styleClass="heat-cell, heat-1"/>
+                <Region GridPane.columnIndex="11" GridPane.rowIndex="4" styleClass="heat-cell, heat-1"/>
+                <Region GridPane.columnIndex="12" GridPane.rowIndex="4" styleClass="heat-cell, heat-4"/>
+                <Region GridPane.columnIndex="13" GridPane.rowIndex="4" styleClass="heat-cell, heat-2"/>
+                <Region GridPane.columnIndex="14" GridPane.rowIndex="4" styleClass="heat-cell, heat-2"/>
+                <Region GridPane.columnIndex="15" GridPane.rowIndex="4" styleClass="heat-cell, heat-0"/>
+
+                <Region GridPane.columnIndex="0" GridPane.rowIndex="5" styleClass="heat-cell, heat-0"/>
+                <Region GridPane.columnIndex="1" GridPane.rowIndex="5" styleClass="heat-cell, heat-2"/>
+                <Region GridPane.columnIndex="2" GridPane.rowIndex="5" styleClass="heat-cell, heat-1"/>
+                <Region GridPane.columnIndex="3" GridPane.rowIndex="5" styleClass="heat-cell, heat-1"/>
+                <Region GridPane.columnIndex="4" GridPane.rowIndex="5" styleClass="heat-cell, heat-0"/>
+                <Region GridPane.columnIndex="5" GridPane.rowIndex="5" styleClass="heat-cell, heat-0"/>
+                <Region GridPane.columnIndex="6" GridPane.rowIndex="5" styleClass="heat-cell, heat-3"/>
+                <Region GridPane.columnIndex="7" GridPane.rowIndex="5" styleClass="heat-cell, heat-3"/>
+                <Region GridPane.columnIndex="8" GridPane.rowIndex="5" styleClass="heat-cell, heat-2"/>
+                <Region GridPane.columnIndex="9" GridPane.rowIndex="5" styleClass="heat-cell, heat-2"/>
+                <Region GridPane.columnIndex="10" GridPane.rowIndex="5" styleClass="heat-cell, heat-1"/>
+                <Region GridPane.columnIndex="11" GridPane.rowIndex="5" styleClass="heat-cell, heat-0"/>
+                <Region GridPane.columnIndex="12" GridPane.rowIndex="5" styleClass="heat-cell, heat-0"/>
+                <Region GridPane.columnIndex="13" GridPane.rowIndex="5" styleClass="heat-cell, heat-3"/>
+                <Region GridPane.columnIndex="14" GridPane.rowIndex="5" styleClass="heat-cell, heat-3"/>
+                <Region GridPane.columnIndex="15" GridPane.rowIndex="5" styleClass="heat-cell, heat-1"/>
+
+                <Region GridPane.columnIndex="0" GridPane.rowIndex="6" styleClass="heat-cell, heat-0"/>
+                <Region GridPane.columnIndex="1" GridPane.rowIndex="6" styleClass="heat-cell, heat-0"/>
+                <Region GridPane.columnIndex="2" GridPane.rowIndex="6" styleClass="heat-cell, heat-0"/>
+                <Region GridPane.columnIndex="3" GridPane.rowIndex="6" styleClass="heat-cell, heat-3"/>
+                <Region GridPane.columnIndex="4" GridPane.rowIndex="6" styleClass="heat-cell, heat-3"/>
+                <Region GridPane.columnIndex="5" GridPane.rowIndex="6" styleClass="heat-cell, heat-2"/>
+                <Region GridPane.columnIndex="6" GridPane.rowIndex="6" styleClass="heat-cell, heat-2"/>
+                <Region GridPane.columnIndex="7" GridPane.rowIndex="6" styleClass="heat-cell, heat-1"/>
+                <Region GridPane.columnIndex="8" GridPane.rowIndex="6" styleClass="heat-cell, heat-2"/>
+                <Region GridPane.columnIndex="9" GridPane.rowIndex="6" styleClass="heat-cell, heat-1"/>
+                <Region GridPane.columnIndex="10" GridPane.rowIndex="6" styleClass="heat-cell, heat-1"/>
+                <Region GridPane.columnIndex="11" GridPane.rowIndex="6" styleClass="heat-cell, heat-1"/>
+                <Region GridPane.columnIndex="12" GridPane.rowIndex="6" styleClass="heat-cell, heat-1"/>
+                <Region GridPane.columnIndex="13" GridPane.rowIndex="6" styleClass="heat-cell, heat-1"/>
+                <Region GridPane.columnIndex="14" GridPane.rowIndex="6" styleClass="heat-cell, heat-0"/>
+                <Region GridPane.columnIndex="15" GridPane.rowIndex="6" styleClass="heat-cell, heat-0"/>
+              </GridPane>
+
+              <HBox alignment="CENTER_RIGHT" spacing="5.0">
+                <Label text="Less" styleClass="muted-xs"/>
+                <Region styleClass="heat-cell, heat-0"/>
+                <Region styleClass="heat-cell, heat-1"/>
+                <Region styleClass="heat-cell, heat-2"/>
+                <Region styleClass="heat-cell, heat-3"/>
+                <Region styleClass="heat-cell, heat-4"/>
+                <Label text="More" styleClass="muted-xs"/>
+              </HBox>
+
+              <Region styleClass="divider"/>
+
+              <HBox alignment="CENTER_LEFT" spacing="8.0">
+                <Label text="Longest streak" styleClass="muted-xs"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Label text="28 days" styleClass="setting-title"/>
+              </HBox>
+            </VBox>
+          </VBox>
+
+          <!-- ACCOUNT SECURITY -->
+          <VBox styleClass="card">
+            <HBox alignment="CENTER_LEFT" spacing="12.0" styleClass="card-header">
+              <VBox spacing="2.0">
+                <Label text="Account security" styleClass="card-title"/>
+                <Label text="Protection status at a glance" styleClass="card-subtitle"/>
+              </VBox>
+              <Region HBox.hgrow="ALWAYS"/>
+              <Label text="Secure" styleClass="badge-success"/>
+            </HBox>
+
+            <VBox spacing="0.0" styleClass="card-body">
+              <HBox alignment="CENTER_LEFT" spacing="12.0" styleClass="security-row">
+                <StackPane minWidth="32.0" maxWidth="32.0" minHeight="32.0" maxHeight="32.0"
+                           styleClass="security-icon, security-icon-green">
+                  <Label text="✓" styleClass="security-glyph"/>
+                </StackPane>
+                <VBox spacing="2.0" HBox.hgrow="ALWAYS">
+                  <Label text="Two-factor authentication" styleClass="setting-title"/>
+                  <Label text="Authenticator app" styleClass="setting-desc"/>
+                </VBox>
+                <Label text="On" styleClass="badge-success"/>
+              </HBox>
+
+              <Region styleClass="divider"/>
+
+              <HBox alignment="CENTER_LEFT" spacing="12.0" styleClass="security-row">
+                <StackPane minWidth="32.0" maxWidth="32.0" minHeight="32.0" maxHeight="32.0"
+                           styleClass="security-icon, security-icon-purple">
+                  <Label text="SSH" styleClass="security-glyph, security-glyph-purple"/>
+                </StackPane>
+                <VBox spacing="2.0" HBox.hgrow="ALWAYS">
+                  <Label text="SSH keys" styleClass="setting-title"/>
+                  <Label text="Last used 2 days ago" styleClass="setting-desc"/>
+                </VBox>
+                <Label text="12 keys" styleClass="security-value"/>
+              </HBox>
+
+              <Region styleClass="divider"/>
+
+              <HBox alignment="CENTER_LEFT" spacing="12.0" styleClass="security-row">
+                <StackPane minWidth="32.0" maxWidth="32.0" minHeight="32.0" maxHeight="32.0"
+                           styleClass="security-icon, security-icon-blue">
+                  <Label text="APP" styleClass="security-glyph, security-glyph-blue"/>
+                </StackPane>
+                <VBox spacing="2.0" HBox.hgrow="ALWAYS">
+                  <Label text="Connected applications" styleClass="setting-title"/>
+                  <Label text="3 apps have access" styleClass="setting-desc"/>
+                </VBox>
+                <Label text="Review" styleClass="security-link"/>
+              </HBox>
+            </VBox>
+
+            <HBox styleClass="card-footer">
+              <Button text="Review security settings" mnemonicParsing="false" maxWidth="Infinity"
+                      HBox.hgrow="ALWAYS" styleClass="button-secondary"/>
+            </HBox>
+          </VBox>
+
+          <!-- ORGANIZATIONS -->
+          <VBox styleClass="card">
+            <HBox alignment="CENTER_LEFT" spacing="12.0" styleClass="card-header">
+              <VBox spacing="2.0">
+                <Label text="Organizations" styleClass="card-title"/>
+                <Label text="Teams you belong to" styleClass="card-subtitle"/>
+              </VBox>
+              <Region HBox.hgrow="ALWAYS"/>
+              <Button text="View all" mnemonicParsing="false" styleClass="link-button"/>
+            </HBox>
+
+            <VBox id="overviewOrgs" spacing="0.0" styleClass="card-body"/>
+          </VBox>
+
+        </VBox>
+
+      </HBox>
+
+      <!-- ============================== FOOTER ============================== -->
+      <HBox alignment="CENTER_LEFT" spacing="8.0" styleClass="content-footer">
+        <Label text="GitHub Manager 1.0" styleClass="footer-text"/>
+        <Label text="·" styleClass="footer-text"/>
+        <Label id="overviewFooterLogin" text="Connected as @github" styleClass="footer-text"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Label text="●" styleClass="status-dot"/>
+        <Label text="All systems operational" styleClass="footer-text"/>
+      </HBox>
+
+    </VBox>
+  </content>
+</ScrollPane>

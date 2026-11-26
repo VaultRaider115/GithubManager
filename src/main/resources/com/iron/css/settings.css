@@ -1,0 +1,214 @@
+/* ============================================================
+   Settings screen — profile forms, preferences and account actions
+   ============================================================ */
+
+/* ============================== FORMS ============================== */
+
+.avatar-editor {
+    -fx-padding: 0 0 2 0;
+}
+
+.form-group {
+    -fx-spacing: 6;
+}
+
+.form-label {
+    -fx-text-fill: #c9d1d9;
+    -fx-font-size: 11px;
+    -fx-font-weight: 600;
+}
+
+.form-hint {
+    -fx-text-fill: #8b949e;
+    -fx-font-size: 9px;
+}
+
+.form-input {
+    -fx-background-color: #0d1117;
+    -fx-background-insets: 0;
+    -fx-background-radius: 8;
+    -fx-border-color: #30363d;
+    -fx-border-radius: 8;
+    -fx-border-width: 1;
+    -fx-text-fill: #e6edf3;
+    -fx-prompt-text-fill: #8b949e;
+    -fx-font-size: 12px;
+    -fx-padding: 8 11;
+}
+
+.form-input:focused {
+    -fx-border-color: #58a6ff;
+    -fx-effect: dropshadow(gaussian, rgba(88, 166, 255, 0.18), 8, 0, 0, 0);
+}
+
+.form-textarea {
+    -fx-background-color: #0d1117;
+    -fx-background-insets: 0;
+    -fx-background-radius: 8;
+    -fx-border-color: #30363d;
+    -fx-border-radius: 8;
+    -fx-border-width: 1;
+    -fx-text-fill: #e6edf3;
+    -fx-font-size: 12px;
+    -fx-padding: 2;
+}
+
+.form-textarea:focused {
+    -fx-border-color: #58a6ff;
+    -fx-effect: dropshadow(gaussian, rgba(88, 166, 255, 0.18), 8, 0, 0, 0);
+}
+
+.form-textarea .content {
+    -fx-background-color: transparent;
+    -fx-background-radius: 8;
+}
+
+.form-textarea .scroll-pane,
+.form-textarea .scroll-pane .viewport {
+    -fx-background-color: transparent;
+}
+
+/* ============================== CHECKBOXES ============================== */
+
+.pref-row {
+    -fx-padding: 2 0;
+}
+
+.pref-check {
+    -fx-padding: 0;
+    -fx-label-padding: 0;
+    -fx-text-fill: #e6edf3;
+    -fx-font-size: 12px;
+}
+
+.pref-check > .box {
+    -fx-background-color: #0d1117;
+    -fx-background-radius: 4;
+    -fx-border-color: #30363d;
+    -fx-border-radius: 4;
+    -fx-border-width: 1;
+    -fx-padding: 3;
+}
+
+.pref-check:selected > .box {
+    -fx-background-color: #238636;
+    -fx-border-color: #2ea043;
+}
+
+.pref-check:selected > .box > .mark {
+    -fx-background-color: #ffffff;
+}
+
+.pref-check:focused > .box {
+    -fx-border-color: #58a6ff;
+}
+
+/* ============================== SEGMENTED CONTROL ============================== */
+
+.segment-bar {
+    -fx-background-color: #0d1117;
+    -fx-background-radius: 8;
+    -fx-border-color: #30363d;
+    -fx-border-radius: 8;
+    -fx-border-width: 1;
+    -fx-padding: 3;
+}
+
+.segment {
+    -fx-background-color: transparent;
+    -fx-background-insets: 0;
+    -fx-background-radius: 6;
+    -fx-border-color: transparent;
+    -fx-border-width: 0;
+    -fx-text-fill: #8b949e;
+    -fx-font-size: 10px;
+    -fx-font-weight: 600;
+    -fx-padding: 6 12;
+    -fx-cursor: hand;
+}
+
+.segment:hover {
+    -fx-background-color: #161b22;
+    -fx-text-fill: #e6edf3;
+}
+
+.segment:selected {
+    -fx-background-color: #21262d;
+    -fx-text-fill: #e6edf3;
+}
+
+.segment:focused {
+    -fx-effect: none;
+}
+
+/* ============================== PLAN ============================== */
+
+.plan-price {
+    -fx-text-fill: #e6edf3;
+    -fx-font-size: 26px;
+    -fx-font-weight: 700;
+}
+
+.plan-period {
+    -fx-text-fill: #8b949e;
+    -fx-font-size: 11px;
+}
+
+.plan-feature {
+    -fx-text-fill: #c9d1d9;
+    -fx-font-size: 10px;
+}
+
+/* ============================== API TOKEN ============================== */
+
+.token-value {
+    -fx-background-color: #0d1117;
+    -fx-background-radius: 6;
+    -fx-border-color: #30363d;
+    -fx-border-radius: 6;
+    -fx-border-width: 1;
+    -fx-text-fill: #c9d1d9;
+    -fx-font-family: "Consolas";
+    -fx-font-size: 10px;
+    -fx-padding: 6 9;
+}
+
+/* ============================== DANGER ZONE ============================== */
+
+.danger-zone {
+    -fx-border-color: rgba(248, 81, 73, 0.35);
+}
+
+.danger-title {
+    -fx-text-fill: #ff7b72;
+}
+
+.danger-desc {
+    -fx-text-fill: #8b949e;
+    -fx-font-size: 10px;
+}
+
+.button-danger {
+    -fx-background-color: rgba(248, 81, 73, 0.10);
+    -fx-background-insets: 0;
+    -fx-background-radius: 8;
+    -fx-border-color: rgba(248, 81, 73, 0.40);
+    -fx-border-radius: 8;
+    -fx-border-width: 1;
+    -fx-text-fill: #ff7b72;
+    -fx-font-size: 11px;
+    -fx-font-weight: 600;
+    -fx-padding: 7 12;
+    -fx-cursor: hand;
+}
+
+.button-danger:hover {
+    -fx-background-color: #da3633;
+    -fx-border-color: #f85149;
+    -fx-text-fill: #ffffff;
+}
+
+.button-danger:focused {
+    -fx-border-color: #ff7b72;
+    -fx-effect: none;
+}
