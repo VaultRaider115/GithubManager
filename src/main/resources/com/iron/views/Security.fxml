@@ -1,0 +1,398 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Arc?>
+<?import javafx.scene.shape.Circle?>
+
+<ScrollPane fitToWidth="true" hbarPolicy="NEVER" vbarPolicy="AS_NEEDED"
+            styleClass="screen-scroll" stylesheets="@../css/security.css"
+            xmlns="http://javafx.com/javafx/27.0.1.1" xmlns:fx="http://javafx.com/fxml/1">
+  <content>
+    <VBox spacing="20.0" styleClass="screen">
+
+      <!-- ============================== SCREEN HEADER ============================== -->
+      <HBox alignment="CENTER_LEFT" spacing="12.0" styleClass="screen-header">
+        <VBox spacing="2.0">
+          <Label text="SECURITY" styleClass="screen-eyebrow"/>
+          <Label text="Security" styleClass="screen-title"/>
+          <Label text="Account protection, sessions and connected apps." styleClass="screen-subtitle"/>
+        </VBox>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Button text="Security log" mnemonicParsing="false" styleClass="button-secondary"/>
+        <Button text="Run checkup" mnemonicParsing="false" styleClass="button-primary"/>
+      </HBox>
+
+      <!-- ============================== SECURITY SCORE ============================== -->
+      <HBox alignment="CENTER_LEFT" spacing="24.0" styleClass="security-hero">
+        <StackPane prefWidth="132.0" prefHeight="132.0" minWidth="132.0" maxWidth="132.0"
+                   minHeight="132.0" maxHeight="132.0" styleClass="score-ring">
+          <Circle radius="54.0" styleClass="score-track"/>
+          <Arc radiusX="54.0" radiusY="54.0" startAngle="90.0" length="-331.0" type="OPEN"
+               strokeLineCap="ROUND" styleClass="score-arc"/>
+          <VBox alignment="CENTER" spacing="0.0">
+            <Label text="92" styleClass="score-number"/>
+            <Label text="out of 100" styleClass="score-caption"/>
+          </VBox>
+        </StackPane>
+
+        <VBox spacing="6.0" HBox.hgrow="ALWAYS" minWidth="0.0">
+          <HBox alignment="CENTER_LEFT" spacing="8.0">
+            <Label text="Strong protection" styleClass="security-hero-title"/>
+            <Label text="92/100" styleClass="badge-success"/>
+          </HBox>
+          <Label text="Your account is well protected. Two-factor authentication is active and no critical vulnerabilities were found in the last scan."
+                 wrapText="true" styleClass="security-hero-desc"/>
+          <HBox alignment="CENTER_LEFT" spacing="8.0">
+            <Label text="Last checkup: 2 hours ago" styleClass="muted-xs"/>
+            <Label text="·" styleClass="meta-dot"/>
+            <Label text="No critical alerts" styleClass="badge-outline"/>
+          </HBox>
+        </VBox>
+
+        <HBox spacing="0.0" minWidth="216.0" styleClass="score-stats">
+          <VBox alignment="CENTER" styleClass="score-stat">
+            <Label text="On" styleClass="score-stat-value, text-green"/>
+            <Label text="2FA" styleClass="score-stat-label"/>
+          </VBox>
+          <Region styleClass="v-divider"/>
+          <VBox alignment="CENTER" styleClass="score-stat">
+            <Label text="12" styleClass="score-stat-value, text-purple"/>
+            <Label text="SSH keys" styleClass="score-stat-label"/>
+          </VBox>
+          <Region styleClass="v-divider"/>
+          <VBox alignment="CENTER" styleClass="score-stat">
+            <Label text="3" styleClass="score-stat-value, text-blue"/>
+            <Label text="Apps" styleClass="score-stat-label"/>
+          </VBox>
+        </HBox>
+      </HBox>
+
+      <!-- ============================== MAIN GRID ============================== -->
+      <HBox alignment="TOP_LEFT" spacing="20.0">
+
+        <VBox spacing="20.0" HBox.hgrow="ALWAYS" minWidth="0.0">
+
+          <!-- SECURITY CHECKLIST -->
+          <VBox styleClass="card">
+            <HBox alignment="CENTER_LEFT" spacing="12.0" styleClass="card-header">
+              <VBox spacing="2.0">
+                <Label text="Security checklist" styleClass="card-title"/>
+                <Label text="Recommended protections for your account" styleClass="card-subtitle"/>
+              </VBox>
+              <Region HBox.hgrow="ALWAYS"/>
+              <Label text="6 of 6" styleClass="badge-success"/>
+            </HBox>
+
+            <VBox spacing="0.0" styleClass="card-body">
+              <HBox alignment="CENTER_LEFT" spacing="12.0" styleClass="security-row">
+                <StackPane minWidth="32.0" maxWidth="32.0" minHeight="32.0" maxHeight="32.0"
+                           styleClass="security-icon, security-icon-green">
+                  <Label text="✓" styleClass="security-glyph"/>
+                </StackPane>
+                <VBox spacing="2.0" HBox.hgrow="ALWAYS">
+                  <Label text="Two-factor authentication" styleClass="setting-title"/>
+                  <Label text="Authenticator app · backup codes saved" styleClass="setting-desc"/>
+                </VBox>
+                <Label text="On" styleClass="badge-success"/>
+              </HBox>
+
+              <Region styleClass="divider"/>
+
+              <HBox alignment="CENTER_LEFT" spacing="12.0" styleClass="security-row">
+                <StackPane minWidth="32.0" maxWidth="32.0" minHeight="32.0" maxHeight="32.0"
+                           styleClass="security-icon, security-icon-green">
+                  <Label text="RC" styleClass="security-glyph, security-glyph-green"/>
+                </StackPane>
+                <VBox spacing="2.0" HBox.hgrow="ALWAYS">
+                  <Label text="Recovery codes" styleClass="setting-title"/>
+                  <Label text="Last viewed 3 months ago" styleClass="setting-desc"/>
+                </VBox>
+                <Label text="Saved" styleClass="badge-outline"/>
+              </HBox>
+
+              <Region styleClass="divider"/>
+
+              <HBox alignment="CENTER_LEFT" spacing="12.0" styleClass="security-row">
+                <StackPane minWidth="32.0" maxWidth="32.0" minHeight="32.0" maxHeight="32.0"
+                           styleClass="security-icon, security-icon-purple">
+                  <Label text="SSH" styleClass="security-glyph, security-glyph-purple"/>
+                </StackPane>
+                <VBox spacing="2.0" HBox.hgrow="ALWAYS">
+                  <Label text="SSH keys" styleClass="setting-title"/>
+                  <Label text="12 keys · last used 2 days ago" styleClass="setting-desc"/>
+                </VBox>
+                <Button text="Review" mnemonicParsing="false" styleClass="link-button"/>
+              </HBox>
+
+              <Region styleClass="divider"/>
+
+              <HBox alignment="CENTER_LEFT" spacing="12.0" styleClass="security-row">
+                <StackPane minWidth="32.0" maxWidth="32.0" minHeight="32.0" maxHeight="32.0"
+                           styleClass="security-icon, security-icon-blue">
+                  <Label text="APP" styleClass="security-glyph, security-glyph-blue"/>
+                </StackPane>
+                <VBox spacing="2.0" HBox.hgrow="ALWAYS">
+                  <Label text="Connected applications" styleClass="setting-title"/>
+                  <Label text="3 apps have access to your account" styleClass="setting-desc"/>
+                </VBox>
+                <Button text="Review" mnemonicParsing="false" styleClass="link-button"/>
+              </HBox>
+
+              <Region styleClass="divider"/>
+
+              <HBox alignment="CENTER_LEFT" spacing="12.0" styleClass="security-row">
+                <StackPane minWidth="32.0" maxWidth="32.0" minHeight="32.0" maxHeight="32.0"
+                           styleClass="security-icon, security-icon-orange">
+                  <Label text="DEV" styleClass="security-glyph, security-glyph-orange"/>
+                </StackPane>
+                <VBox spacing="2.0" HBox.hgrow="ALWAYS">
+                  <Label text="Signed-in devices" styleClass="setting-title"/>
+                  <Label text="3 active sessions · all verified" styleClass="setting-desc"/>
+                </VBox>
+                <Button text="Review" mnemonicParsing="false" styleClass="link-button"/>
+              </HBox>
+
+              <Region styleClass="divider"/>
+
+              <HBox alignment="CENTER_LEFT" spacing="12.0" styleClass="security-row">
+                <StackPane minWidth="32.0" maxWidth="32.0" minHeight="32.0" maxHeight="32.0"
+                           styleClass="security-icon, security-icon-green">
+                  <Label text="✓" styleClass="security-glyph"/>
+                </StackPane>
+                <VBox spacing="2.0" HBox.hgrow="ALWAYS">
+                  <Label text="Secret scanning" styleClass="setting-title"/>
+                  <Label text="Enabled for 18 repositories" styleClass="setting-desc"/>
+                </VBox>
+                <Label text="On" styleClass="badge-success"/>
+              </HBox>
+            </VBox>
+          </VBox>
+
+          <!-- SECURITY EVENTS -->
+          <VBox styleClass="card">
+            <HBox alignment="CENTER_LEFT" spacing="12.0" styleClass="card-header">
+              <VBox spacing="2.0">
+                <Label text="Recent security events" styleClass="card-title"/>
+                <Label text="Last 7 days" styleClass="card-subtitle"/>
+              </VBox>
+              <Region HBox.hgrow="ALWAYS"/>
+              <Button text="View log" mnemonicParsing="false" styleClass="link-button"/>
+            </HBox>
+
+            <VBox>
+              <HBox alignment="TOP_LEFT" spacing="12.0" styleClass="timeline-item">
+                <StackPane minWidth="30.0" maxWidth="30.0" minHeight="30.0" maxHeight="30.0"
+                           styleClass="timeline-icon, timeline-icon-green">
+                  <Label text="SI" styleClass="timeline-badge"/>
+                </StackPane>
+                <VBox spacing="3.0" HBox.hgrow="ALWAYS">
+                  <Label text="New sign-in from Chrome on macOS" wrapText="true" styleClass="timeline-title"/>
+                  <Label text="Buenos Aires, AR · 2 hours ago" styleClass="timeline-meta"/>
+                </VBox>
+                <Label text="Verified" styleClass="badge-success"/>
+              </HBox>
+
+              <Region styleClass="divider"/>
+
+              <HBox alignment="TOP_LEFT" spacing="12.0" styleClass="timeline-item">
+                <StackPane minWidth="30.0" maxWidth="30.0" minHeight="30.0" maxHeight="30.0"
+                           styleClass="timeline-icon, timeline-icon-purple">
+                  <Label text="KEY" styleClass="timeline-badge"/>
+                </StackPane>
+                <VBox spacing="3.0" HBox.hgrow="ALWAYS">
+                  <Label text="SSH key added to your account" wrapText="true" styleClass="timeline-title"/>
+                  <Label text="ed25519-key · yesterday" styleClass="timeline-meta"/>
+                </VBox>
+              </HBox>
+
+              <Region styleClass="divider"/>
+
+              <HBox alignment="TOP_LEFT" spacing="12.0" styleClass="timeline-item">
+                <StackPane minWidth="30.0" maxWidth="30.0" minHeight="30.0" maxHeight="30.0"
+                           styleClass="timeline-icon, timeline-icon-blue">
+                  <Label text="APP" styleClass="timeline-badge"/>
+                </StackPane>
+                <VBox spacing="3.0" HBox.hgrow="ALWAYS">
+                  <Label text="Application authorized: Vercel" wrapText="true" styleClass="timeline-title"/>
+                  <Label text="Scopes: repo, read:user · 3 days ago" styleClass="timeline-meta"/>
+                </VBox>
+              </HBox>
+
+              <Region styleClass="divider"/>
+
+              <HBox alignment="TOP_LEFT" spacing="12.0" styleClass="timeline-item">
+                <StackPane minWidth="30.0" maxWidth="30.0" minHeight="30.0" maxHeight="30.0"
+                           styleClass="timeline-icon, timeline-icon-orange">
+                  <Label text="PW" styleClass="timeline-badge"/>
+                </StackPane>
+                <VBox spacing="3.0" HBox.hgrow="ALWAYS">
+                  <Label text="Account password changed" wrapText="true" styleClass="timeline-title"/>
+                  <Label text="From this device · 1 week ago" styleClass="timeline-meta"/>
+                </VBox>
+              </HBox>
+            </VBox>
+          </VBox>
+
+        </VBox>
+
+        <!-- ============================== RIGHT RAIL ============================== -->
+        <VBox prefWidth="320.0" minWidth="300.0" maxWidth="340.0" spacing="20.0">
+
+          <!-- ACTIVE SESSIONS -->
+          <VBox styleClass="card">
+            <HBox alignment="CENTER_LEFT" spacing="12.0" styleClass="card-header">
+              <VBox spacing="2.0">
+                <Label text="Active sessions" styleClass="card-title"/>
+                <Label text="Devices signed in to your account" styleClass="card-subtitle"/>
+              </VBox>
+              <Region HBox.hgrow="ALWAYS"/>
+              <Label text="3" styleClass="contribution-count"/>
+            </HBox>
+            <VBox spacing="0.0" styleClass="card-body">
+              <HBox alignment="CENTER_LEFT" spacing="10.0" styleClass="session-row">
+                <StackPane minWidth="32.0" maxWidth="32.0" minHeight="32.0" maxHeight="32.0"
+                           styleClass="session-icon, session-icon-green">
+                  <Label text="MB" styleClass="session-glyph"/>
+                </StackPane>
+                <VBox spacing="2.0" HBox.hgrow="ALWAYS" minWidth="0.0">
+                  <HBox alignment="CENTER_LEFT" spacing="6.0">
+                    <Label text="MacBook Pro" styleClass="setting-title"/>
+                    <Label text="This device" styleClass="badge-success"/>
+                  </HBox>
+                  <Label text="Buenos Aires, AR · Chrome · Active now" wrapText="true" styleClass="setting-desc"/>
+                </VBox>
+              </HBox>
+
+              <Region styleClass="divider"/>
+
+              <HBox alignment="CENTER_LEFT" spacing="10.0" styleClass="session-row">
+                <StackPane minWidth="32.0" maxWidth="32.0" minHeight="32.0" maxHeight="32.0"
+                           styleClass="session-icon, session-icon-blue">
+                  <Label text="IP" styleClass="session-glyph"/>
+                </StackPane>
+                <VBox spacing="2.0" HBox.hgrow="ALWAYS" minWidth="0.0">
+                  <Label text="iPhone 16 Pro" styleClass="setting-title"/>
+                  <Label text="Buenos Aires · Safari · 3h ago" wrapText="true" styleClass="setting-desc"/>
+                </VBox>
+                <Button text="Revoke" mnemonicParsing="false" minWidth="54.0" styleClass="link-button"/>
+              </HBox>
+
+              <Region styleClass="divider"/>
+
+              <HBox alignment="CENTER_LEFT" spacing="10.0" styleClass="session-row">
+                <StackPane minWidth="32.0" maxWidth="32.0" minHeight="32.0" maxHeight="32.0"
+                           styleClass="session-icon, session-icon-purple">
+                  <Label text="PC" styleClass="session-glyph"/>
+                </StackPane>
+                <VBox spacing="2.0" HBox.hgrow="ALWAYS" minWidth="0.0">
+                  <Label text="Windows desktop" styleClass="setting-title"/>
+                  <Label text="Remote · Edge · 2 days ago" wrapText="true" styleClass="setting-desc"/>
+                </VBox>
+                <Button text="Revoke" mnemonicParsing="false" minWidth="54.0" styleClass="link-button"/>
+              </HBox>
+            </VBox>
+          </VBox>
+
+          <!-- CONNECTED APPLICATIONS -->
+          <VBox styleClass="card">
+            <HBox alignment="CENTER_LEFT" spacing="12.0" styleClass="card-header">
+              <VBox spacing="2.0">
+                <Label text="Connected applications" styleClass="card-title"/>
+                <Label text="OAuth apps with access" styleClass="card-subtitle"/>
+              </VBox>
+              <Region HBox.hgrow="ALWAYS"/>
+              <Label text="3" styleClass="contribution-count"/>
+            </HBox>
+            <VBox spacing="0.0" styleClass="card-body">
+              <HBox alignment="CENTER_LEFT" spacing="10.0" styleClass="app-row">
+                <Label text="VS" minWidth="32.0" maxWidth="32.0" minHeight="32.0" maxHeight="32.0"
+                       styleClass="app-mark, app-mark-blue"/>
+                <VBox spacing="2.0" HBox.hgrow="ALWAYS">
+                  <Label text="Visual Studio Code" styleClass="setting-title"/>
+                  <Label text="repo, read:user" styleClass="setting-desc"/>
+                </VBox>
+                <Button text="Manage" mnemonicParsing="false" styleClass="link-button"/>
+              </HBox>
+
+              <Region styleClass="divider"/>
+
+              <HBox alignment="CENTER_LEFT" spacing="10.0" styleClass="app-row">
+                <Label text="FG" minWidth="32.0" maxWidth="32.0" minHeight="32.0" maxHeight="32.0"
+                       styleClass="app-mark, app-mark-purple"/>
+                <VBox spacing="2.0" HBox.hgrow="ALWAYS">
+                  <Label text="Figma" styleClass="setting-title"/>
+                  <Label text="read:user" styleClass="setting-desc"/>
+                </VBox>
+                <Button text="Manage" mnemonicParsing="false" styleClass="link-button"/>
+              </HBox>
+
+              <Region styleClass="divider"/>
+
+              <HBox alignment="CENTER_LEFT" spacing="10.0" styleClass="app-row">
+                <Label text="VC" minWidth="32.0" maxWidth="32.0" minHeight="32.0" maxHeight="32.0"
+                       styleClass="app-mark, app-mark-orange"/>
+                <VBox spacing="2.0" HBox.hgrow="ALWAYS">
+                  <Label text="Vercel" styleClass="setting-title"/>
+                  <Label text="repo, workflow" styleClass="setting-desc"/>
+                </VBox>
+                <Button text="Manage" mnemonicParsing="false" styleClass="link-button"/>
+              </HBox>
+            </VBox>
+          </VBox>
+
+          <!-- DEPENDABOT -->
+          <VBox styleClass="card">
+            <HBox alignment="CENTER_LEFT" spacing="12.0" styleClass="card-header">
+              <VBox spacing="2.0">
+                <Label text="Dependabot alerts" styleClass="card-title"/>
+                <Label text="Across 18 repositories" styleClass="card-subtitle"/>
+              </VBox>
+              <Region HBox.hgrow="ALWAYS"/>
+              <Label text="7" styleClass="badge-warning"/>
+            </HBox>
+            <VBox spacing="12.0" styleClass="card-body">
+              <HBox alignment="CENTER_LEFT" spacing="0.0" styleClass="advisory-summary">
+                <VBox alignment="CENTER" HBox.hgrow="ALWAYS" styleClass="advisory-block">
+                  <Label text="0" styleClass="advisory-number, text-green"/>
+                  <Label text="Critical" styleClass="advisory-label"/>
+                </VBox>
+                <VBox alignment="CENTER" HBox.hgrow="ALWAYS" styleClass="advisory-block">
+                  <Label text="2" styleClass="advisory-number, text-orange"/>
+                  <Label text="Moderate" styleClass="advisory-label"/>
+                </VBox>
+                <VBox alignment="CENTER" HBox.hgrow="ALWAYS" styleClass="advisory-block">
+                  <Label text="5" styleClass="advisory-number"/>
+                  <Label text="Low" styleClass="advisory-label"/>
+                </VBox>
+              </HBox>
+              <Region styleClass="divider"/>
+              <HBox alignment="CENTER_LEFT" spacing="8.0">
+                <Label text="Dependabot is enabled" styleClass="setting-desc"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Button text="View alerts" mnemonicParsing="false" styleClass="link-button"/>
+              </HBox>
+            </VBox>
+          </VBox>
+
+        </VBox>
+      </HBox>
+
+      <!-- ============================== FOOTER ============================== -->
+      <HBox alignment="CENTER_LEFT" spacing="8.0" styleClass="content-footer">
+        <Label text="GitHub Manager 1.0" styleClass="footer-text"/>
+        <Label text="·" styleClass="footer-text"/>
+        <Label text="Connected as @irondev" styleClass="footer-text"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Label text="●" styleClass="status-dot"/>
+        <Label text="All systems operational" styleClass="footer-text"/>
+      </HBox>
+
+    </VBox>
+  </content>
+</ScrollPane>

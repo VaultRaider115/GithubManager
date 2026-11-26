@@ -1,0 +1,131 @@
+/* ============================================================
+   Activity screen — contribution graph, weekly chart and highlights
+   ============================================================ */
+
+/* ============================== CONTRIBUTION GRAPH ============================== */
+
+.heatmap-months {
+    -fx-padding: 0 0 2 0;
+}
+
+.heatmap-month {
+    -fx-text-fill: #8b949e;
+    -fx-font-size: 9px;
+}
+
+.heatmap-wide {
+    -fx-padding: 0;
+}
+
+/* ============================== WEEK CHART ============================== */
+
+.week-chart {
+    -fx-padding: 4 0 0 0;
+}
+
+.week-col {
+    -fx-min-width: 24;
+}
+
+.week-bar {
+    -fx-min-width: 18;
+    -fx-max-width: 24;
+    -fx-background-color: #238636;
+    -fx-background-radius: 4 4 2 2;
+}
+
+.week-bar-hot {
+    -fx-background-color: linear-gradient(to top, #238636, #39d353);
+}
+
+.week-bar-muted {
+    -fx-background-color: #21262d;
+}
+
+.week-label {
+    -fx-text-fill: #8b949e;
+    -fx-font-size: 9px;
+    -fx-font-weight: 600;
+}
+
+/* ============================== ACTIVITY BY REPOSITORY ============================== */
+
+.activity-repo {
+    -fx-padding: 1 0;
+}
+
+.activity-repo-name {
+    -fx-text-fill: #c9d1d9;
+    -fx-font-size: 10px;
+    -fx-font-weight: 600;
+}
+
+.activity-repo-count {
+    -fx-text-fill: #8b949e;
+    -fx-font-size: 9px;
+}
+
+.activity-bar {
+    -fx-min-height: 5px;
+    -fx-pref-height: 5px;
+    -fx-max-height: 5px;
+    -fx-padding: 0;
+}
+
+.activity-bar > .track {
+    -fx-background-color: #21262d;
+    -fx-background-radius: 999;
+    -fx-background-insets: 0;
+}
+
+.activity-bar > .bar {
+    -fx-background-color: linear-gradient(to right, #1f6feb, #58a6ff);
+    -fx-background-radius: 999;
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+}
+
+/* ============================== HIGHLIGHTS ============================== */
+
+.achievement-row {
+    -fx-padding: 10 0;
+}
+
+.achievement-mark {
+    -fx-background-radius: 9;
+    -fx-border-radius: 9;
+    -fx-border-width: 1;
+    -fx-alignment: center;
+}
+
+.achievement-mark-green {
+    -fx-background-color: rgba(63, 185, 80, 0.12);
+    -fx-border-color: rgba(63, 185, 80, 0.26);
+}
+
+.achievement-mark-purple {
+    -fx-background-color: rgba(188, 140, 255, 0.12);
+    -fx-border-color: rgba(188, 140, 255, 0.26);
+}
+
+.achievement-mark-orange {
+    -fx-background-color: rgba(210, 153, 34, 0.12);
+    -fx-border-color: rgba(210, 153, 34, 0.26);
+}
+
+.achievement-glyph {
+    -fx-font-size: 12px;
+    -fx-font-weight: 700;
+}
+
+.achievement-mark-green .achievement-glyph {
+    -fx-text-fill: #3fb950;
+}
+
+.achievement-mark-purple .achievement-glyph {
+    -fx-text-fill: #bc8cff;
+}
+
+.achievement-mark-orange .achievement-glyph {
+    -fx-text-fill: #d29922;
+}

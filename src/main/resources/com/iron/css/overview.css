@@ -1,0 +1,114 @@
+/* ============================================================
+   Overview screen — profile hero, repositories and organizations
+   ============================================================ */
+
+.hero-card {
+    -fx-background-color: #161b22;
+    -fx-background-radius: 12;
+    -fx-border-color: #30363d;
+    -fx-border-radius: 12;
+    -fx-border-width: 1;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.28), 22, 0, 0, 9);
+}
+
+.hero-cover {
+    -fx-background-color: linear-gradient(to bottom right, rgba(31, 111, 235, 0.55), rgba(137, 87, 229, 0.26) 58%, rgba(22, 27, 34, 0.0));
+    -fx-background-radius: 11 11 0 0;
+}
+
+.hero-body {
+    -fx-padding: 18 24 20 24;
+}
+
+.hero-name {
+    -fx-text-fill: #e6edf3;
+    -fx-font-size: 24px;
+    -fx-font-weight: 700;
+}
+
+.hero-handle {
+    -fx-text-fill: #8b949e;
+    -fx-font-size: 12px;
+}
+
+.hero-bio {
+    -fx-text-fill: #c9d1d9;
+    -fx-font-size: 12px;
+}
+
+.hero-stats {
+    -fx-background-color: rgba(1, 4, 9, 0.30);
+    -fx-background-radius: 0 0 11 11;
+    -fx-border-color: #21262d transparent transparent transparent;
+    -fx-border-width: 1 0 0 0;
+    -fx-padding: 14 24;
+}
+
+.stat-block {
+    -fx-padding: 0 14;
+}
+
+.stat-number {
+    -fx-text-fill: #e6edf3;
+    -fx-font-size: 20px;
+    -fx-font-weight: 700;
+}
+
+.stat-label {
+    -fx-text-fill: #8b949e;
+    -fx-font-size: 10px;
+}
+
+/* ============================== REPOSITORY LIST ============================== */
+
+.repo-item {
+    -fx-padding: 14 20;
+}
+
+.repo-name {
+    -fx-text-fill: #58a6ff;
+    -fx-font-size: 13px;
+    -fx-font-weight: 700;
+}
+
+.repo-desc {
+    -fx-text-fill: #8b949e;
+    -fx-font-size: 11px;
+}
+
+/* ============================== ORGANIZATIONS ============================== */
+
+.org-row {
+    -fx-padding: 10 0;
+}
+
+.org-mark {
+    -fx-background-radius: 9;
+    -fx-alignment: center;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 10px;
+    -fx-font-weight: 700;
+}
+
+.org-blue {
+    -fx-background-color: linear-gradient(to bottom right, #1f6feb, #388bfd);
+}
+
+.org-purple {
+    -fx-background-color: linear-gradient(to bottom right, #8957e5, #bc8cff);
+}
+
+.org-orange {
+    -fx-background-color: linear-gradient(to bottom right, #9e6a03, #d29922);
+}
+
+.org-name {
+    -fx-text-fill: #e6edf3;
+    -fx-font-size: 11px;
+    -fx-font-weight: 600;
+}
+
+.org-desc {
+    -fx-text-fill: #8b949e;
+    -fx-font-size: 10px;
+}

@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.SVGPath?>
+
+<VBox prefWidth="256.0" minWidth="256.0" maxWidth="256.0" styleClass="sidebar"
+      xmlns="http://javafx.com/javafx/27.0.1.1" xmlns:fx="http://javafx.com/fxml/1">
+
+  <!-- ============================== BRAND ============================== -->
+  <HBox alignment="CENTER_LEFT" spacing="11.0" styleClass="brand">
+    <StackPane prefWidth="40.0" prefHeight="40.0" minWidth="40.0" maxWidth="40.0"
+               minHeight="40.0" maxHeight="40.0" styleClass="brand-mark">
+      <SVGPath content="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"
+               scaleX="1.35" scaleY="1.35" styleClass="brand-icon"/>
+    </StackPane>
+    <VBox spacing="1.0">
+      <Label text="GitHub" styleClass="brand-title"/>
+      <Label text="ACCOUNT MANAGER" styleClass="brand-subtitle"/>
+    </VBox>
+  </HBox>
+
+  <!-- ============================== PROFILE ============================== -->
+  <HBox alignment="CENTER_LEFT" spacing="10.0" styleClass="sidebar-profile">
+    <StackPane prefWidth="38.0" prefHeight="38.0" minWidth="38.0" maxWidth="38.0"
+               minHeight="38.0" maxHeight="38.0" styleClass="avatar">
+      <Label id="sidebarInitials" text="ID" styleClass="avatar-initials, avatar-initials-sm"/>
+    </StackPane>
+    <VBox spacing="1.0" HBox.hgrow="ALWAYS">
+      <Label id="sidebarName" text="GitHub user" styleClass="sidebar-name"/>
+      <Label id="sidebarHandle" text="\@github" styleClass="sidebar-handle"/>
+    </VBox>
+    <Label text="PRO" styleClass="badge-pro"/>
+  </HBox>
+
+  <!-- ============================== WORKSPACE LINKS ============================== -->
+  <Label text="WORKSPACE" styleClass="nav-section"/>
+
+  <Button text="Overview" mnemonicParsing="false" maxWidth="Infinity"
+          alignment="CENTER_LEFT" graphicTextGap="11.0" styleClass="nav-item, nav-item-active">
+    <graphic>
+      <SVGPath content="M1.5 1.5h5v5h-5zM9.5 1.5h5v5h-5zM1.5 9.5h5v5h-5zM9.5 9.5h5v5h-5z"
+               styleClass="nav-icon"/>
+    </graphic>
+  </Button>
+  <Button text="Repositories" mnemonicParsing="false" maxWidth="Infinity"
+          alignment="CENTER_LEFT" graphicTextGap="11.0" styleClass="nav-item">
+    <graphic>
+      <SVGPath content="M2 1.5h4.2c1 0 1.8.8 1.8 1.8v10.2c-.4-.8-1.2-1.2-2.2-1.2H2V1.5zM14 1.5H9.8c-1 0-1.8.8-1.8 1.8v10.2c.4-.8 1.2-1.2 2.2-1.2H14V1.5z"
+               styleClass="nav-icon"/>
+    </graphic>
+  </Button>
+  <Button text="Activity" mnemonicParsing="false" maxWidth="Infinity"
+          alignment="CENTER_LEFT" graphicTextGap="11.0" styleClass="nav-item">
+    <graphic>
+      <SVGPath content="M2 9h3v5H2zM6.5 5h3v9h-3zM11 1.5h3v12.5h-3z"
+               styleClass="nav-icon"/>
+    </graphic>
+  </Button>
+  <Button text="Security" mnemonicParsing="false" maxWidth="Infinity"
+          alignment="CENTER_LEFT" graphicTextGap="11.0" styleClass="nav-item">
+    <graphic>
+      <SVGPath content="M8 1.2l5.2 2.1v3.9c0 3.2-2.1 5.8-5.2 7.1-3.1-1.3-5.2-3.9-5.2-7.1V3.3L8 1.2z"
+               styleClass="nav-icon"/>
+    </graphic>
+  </Button>
+  <Button text="Settings" mnemonicParsing="false" maxWidth="Infinity"
+          alignment="CENTER_LEFT" graphicTextGap="11.0" styleClass="nav-item">
+    <graphic>
+      <SVGPath content="M1.5 3h13v2h-13zM4 2h2v4H4zM1.5 7h13v2h-13zM10 6h2v4h-2zM1.5 11h13v2h-13zM7 10h2v4H7z"
+               styleClass="nav-icon"/>
+    </graphic>
+  </Button>
+
+  <Label text="SHORTCUTS" styleClass="nav-section"/>
+
+  <Button text="Starred repositories" mnemonicParsing="false" maxWidth="Infinity"
+          alignment="CENTER_LEFT" graphicTextGap="11.0" styleClass="nav-item, nav-item-muted">
+    <graphic>
+      <SVGPath content="M8 1.4l2 4.1 4.5.6-3.3 3.2.8 4.5L8 11.7l-4 2.1.8-4.5L1.5 6.1 6 5.5 8 1.4z"
+               styleClass="nav-icon"/>
+    </graphic>
+  </Button>
+  <Button text="Pull requests" mnemonicParsing="false" maxWidth="Infinity"
+          alignment="CENTER_LEFT" graphicTextGap="11.0" styleClass="nav-item, nav-item-muted">
+    <graphic>
+      <SVGPath content="M2 3h12v2H2zM2 7h12v2H2zM2 11h8v2H2z"
+               styleClass="nav-icon"/>
+    </graphic>
+  </Button>
+  <Button text="Issues" mnemonicParsing="false" maxWidth="Infinity"
+          alignment="CENTER_LEFT" graphicTextGap="11.0" styleClass="nav-item, nav-item-muted">
+    <graphic>
+      <SVGPath content="M8 1l7 7-7 7-7-7z" styleClass="nav-icon"/>
+    </graphic>
+  </Button>
+
+  <Region VBox.vgrow="ALWAYS" minHeight="14.0"/>
+
+  <!-- ============================== API USAGE ============================== -->
+  <VBox spacing="8.0" styleClass="usage-card">
+    <HBox alignment="CENTER_LEFT">
+      <Label text="API rate limit" styleClass="card-label"/>
+      <Region HBox.hgrow="ALWAYS"/>
+      <Label id="apiUsageValue" text="—" styleClass="usage-value"/>
+    </HBox>
+    <ProgressBar id="apiUsageBar" progress="0" maxWidth="Infinity" styleClass="usage-bar"/>
+    <Label id="apiUsageDetail" text="Loading rate limit…" styleClass="muted-xs"/>
+    <Label id="apiUsageReset" text=" " styleClass="muted-xs"/>
+  </VBox>
+
+  <!-- ============================== FOOTER ============================== -->
+  <HBox alignment="CENTER_LEFT" spacing="7.0" styleClass="sidebar-footer">
+    <Label text="●" styleClass="status-dot"/>
+    <Label id="apiStatus" text="GitHub API" styleClass="muted-xs"/>
+    <Region HBox.hgrow="ALWAYS"/>
+    <Button text="Sign out" mnemonicParsing="false" styleClass="link-button"/>
+  </HBox>
+
+</VBox>
